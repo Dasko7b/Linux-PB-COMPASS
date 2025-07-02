@@ -24,7 +24,7 @@ A primeira etapa consiste em criar a infraestrutura de rede e o servidor na AWS.
     * Acesse o console da AWS e navegue até o serviço de VPC.
     * Utilize o assistente "VPC e mais" para criar uma nova VPC.
     * Configure a VPC com 2 sub-redes públicas e 2 sub-redes privadas.
-    
+    (./img/VPCconfig.png)
 
 2.  **Criação da Instância EC2:**
     * No console do EC2, lance uma nova instância.
