@@ -12,7 +12,7 @@ Este repositório contém a documentação e os scripts para o projeto final da 
 * **Nginx:** Servidor web para hospedar a página HTML.
 * **Bash Scripting:** Para criar o script de monitoramento.
 * **Cron:** Para automatizar a execução do script.
-* **Discord/Telegram:** Como plataforma para recebimento de alertas.
+* **Discord:** Como plataforma para recebimento de alertas.
 
 ---
 
