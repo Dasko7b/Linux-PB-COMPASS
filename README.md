@@ -30,14 +30,14 @@ A primeira etapa consiste em criar a infraestrutura de rede e o servidor na AWS.
     * No console do EC2, lance uma nova instância.
     * **TAGS:** Coloque as tags `necessárias` de acordo com o que você precisa.
     * **AMI:** `Ubuntu`.
-    * **Tipo de Instância:** `t2.micro` (elegível para o nível gratuito).
+    * **Tipo de Instância:** `t2.micro` 
     * **VPC/Sub-rede:** Associe a instância à VPC criada e a uma das **sub-redes públicas**.
     * **Atribuir endereço publico automaticamente:** `Habilitado`.
     * **Par de Chaves:** Crie e faça o download de um novo par de chaves (`.pem`) para garantir o acesso seguro.
     * **Security Group:** Crie um novo grupo de segurança permitindo tráfego de entrada nas seguintes portas:
         * `HTTP (porta 80)` - Origem: `Anywhere-IPv4 (0.0.0.0/0)`
         * `SSH (porta 22)` - Origem: `Meu IP` (Recomendado por segurança)
-        * `Obs:Crie o segurity group antes de criar a EC2` 
+        * Obs:Crie o segurity group antes de criar a EC2 e apenas selecione na hora de criar a EC2
         ![Como criar grupo](./img/SecurutyGroups.png)
 
 3.  **Acesso via SSH:**
@@ -88,10 +88,10 @@ Com o acesso ao servidor, o próximo passo é instalar e configurar o Nginx.
     </body>
     </html>
     ```
-    * Use uma página existente no linux:
+    * Use uma página existente no seu linux:
         * No seu terminal sem ser o que está conectado na maquina na nuvem:
         * **Ubuntu:** scp -i [sua-chave.pem] [arquivo-local-para-enviar] [usuario]@[ip-publico]:[caminho-remoto-onde-salvar]
-        * **Obs:podem ser enviados tudo que você precisa index.html,style.css,funtion.js e imagens**
+        * **Obs: podem ser enviados tudo que você precisa index.html, style.css, funtion.js e imagens e salve no diretório /var/www/html/**
 
 4.  **Teste:** Acesse `http://SEU_IP_PUBLICO` em um navegador para verificar se a página está sendo exibida.
 
@@ -103,6 +103,7 @@ Nesta etapa, criamos o script que verifica a saúde do site e o automatizamos co
 
 1.  **Criação do Script de Monitoramento:**
     * Crie o arquivo de script no servidor.
+    * O caminho do arquivo pode ser relativo.
     ```bash
     sudo nano /usr/local/bin/monitor.sh
     ```
@@ -172,4 +173,3 @@ Para garantir que a solução funciona como esperado:
     ```bash
     sudo service start nginx
     ```
-    
