@@ -24,7 +24,7 @@ A primeira etapa consiste em criar a infraestrutura de rede e o servidor na AWS.
     * Acesse o console da AWS e navegue até o serviço de VPC.
     * Utilize o assistente "VPC e mais" para criar uma nova VPC.
     * Configure a VPC com 2 sub-redes públicas e 2 sub-redes privadas.
-    ![Screenshot da configuração do Security Group](./img/VPCconfig.png)
+    ![Como criar VPC](./img/VPCconfig.png)
 
 2.  **Criação da Instância EC2:**
     * No console do EC2, lance uma nova instância.
@@ -38,6 +38,7 @@ A primeira etapa consiste em criar a infraestrutura de rede e o servidor na AWS.
         * `HTTP (porta 80)` - Origem: `Anywhere-IPv4 (0.0.0.0/0)`
         * `SSH (porta 22)` - Origem: `Meu IP` (Recomendado por segurança)
         * `Obs:Crie o segurity group antes de criar a EC2` 
+        ![Como criar grupo](./img/SecurutyGroups.png)
 
 3.  **Acesso via SSH:**
     * Com a instância em execução, utilize o endereço IP público e o arquivo `.pem` para se conectar via SSH.
@@ -67,8 +68,9 @@ Com o acesso ao servidor, o próximo passo é instalar e configurar o Nginx.
     ```bash
     sudo service nginx start
     sudo systemctl enable nginx 
-    sudo service nginx status -> Status deve aparecer como running.
+    sudo service nginx status 
     ```
+    * Status deve aparecer como running.
 
 3.  **Criação da Página HTML:**
     * Crie uma página `index.html` simples para ser exibida. O caminho do arquivo varia com o sistema operacional:
@@ -89,7 +91,7 @@ Com o acesso ao servidor, o próximo passo é instalar e configurar o Nginx.
     * Use uma página existente no linux:
         * No seu terminal sem ser o que está conectado na maquina na nuvem:
         * **Ubuntu:** scp -i [sua-chave.pem] [arquivo-local-para-enviar] [usuario]@[ip-publico]:[caminho-remoto-onde-salvar]
-        * `Obs:podem ser enviados tudo que você precisa index.html,style.css,funtion.js e imagens`
+        * **Obs:podem ser enviados tudo que você precisa index.html,style.css,funtion.js e imagens**
 
 4.  **Teste:** Acesse `http://SEU_IP_PUBLICO` em um navegador para verificar se a página está sendo exibida.
 
@@ -170,4 +172,4 @@ Para garantir que a solução funciona como esperado:
     ```bash
     sudo service start nginx
     ```
-
+    
